@@ -6,12 +6,16 @@ class Services {
 
   static Future<List<Location>> getLocations(final id) async {
     // print(id);
-    String url = 'https://f6bfdc60dbdd.ngrok.io/type/' + id.toString();
+    String url = 'https://7be1442ca1d0.ngrok.io/type/' + id.toString();
     // print(url);
     try {
       final response = await http.get(url);
+      // print(response.statusCode);
       if (200 == response.statusCode) {
+        print(response.body + 'hello');
+        print(locationFromJson(response.body));
         final List<Location> locations = locationFromJson(response.body);
+        // print(locations);
         return locations;
       } else {
         return List<Location>();

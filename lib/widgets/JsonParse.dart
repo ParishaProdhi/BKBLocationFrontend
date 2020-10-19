@@ -3,39 +3,30 @@ import 'package:flutter_app/widgets/nav-drawer.dart';
 
 import 'Services.dart';
 import 'locations.dart';
+import 'map.dart';
 
 class JsonParse extends StatefulWidget {
   final id;
-  //final int id;
   JsonParse(this.id);
-  //  JsonParse() : super();
-  // var id;
-  // JsonParse({this.id});
   @override
   _JsonParseState createState() => _JsonParseState(id);
-  // State<StatefulWidget> createState() {
-  //   return _JsonParseState(id);
-  // }
 }
 
 class _JsonParseState extends State<JsonParse> {
-  //
   List<Location> _locations;
   bool _loading;
 
   _JsonParseState(final id);
-  // var id;
-  // _JsonParseState({this.id});
 
   @override
   void initState() {
     super.initState();
     _loading = true;
-    // id = widget.id;
     // print(id);
     Services.getLocations(id).then((locations) {
       setState(() {
         _locations = locations;
+        // print(_locations);
         _loading = false;
       });
     });
@@ -66,7 +57,14 @@ class _JsonParseState extends State<JsonParse> {
                     children: <Widget>[
                       TextButton(
                         child: const Text('GET LIVE LOCATION'),
-                        onPressed: () {/* ... */},
+                        onPressed: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MyMap(
+                                      location.lattitude, location.longitude))),
+                          print(location),
+                        },
                       ),
                       const SizedBox(width: 8),
                     ],

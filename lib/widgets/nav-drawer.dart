@@ -15,23 +15,22 @@ class NavDrawer extends StatelessWidget {
                 new Image.asset('assets/images/bkbIcon.png', fit: BoxFit.cover),
           ),
           ListTile(
-            leading: Icon(Icons.input),
-            title: Text('ATM Booths'),
+            title: Text('Branches'),
             onTap: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => JsonParse(id = 1)))
             },
           ),
           ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Branches'),
+            // leading: Icon(Icons.verified_user),
+            title: Text('ATM Booths'),
             onTap: () => {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => JsonParse(id = 2)))
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
+            // leading: Icon(Icons.settings),
             title: Text('Divisional Offices'),
             onTap: () => {
               Navigator.push(context,
@@ -39,7 +38,7 @@ class NavDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
+            // leading: Icon(Icons.exit_to_app),
             title: Text('Regional Offices'),
             onTap: () => {
               Navigator.push(context,
