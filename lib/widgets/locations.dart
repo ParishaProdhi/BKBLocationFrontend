@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-List<Location> locationFromJson(String str) => List<Location>.from(
-    json.decode(str).map((x) => Location.fromJson(x))); //eikhane problem
+List<Location> locationFromJson(String str) =>
+    List<Location>.from(json.decode(str).map((x) => Location.fromJson(x)));
 
 String locationToJson(List<Location> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
@@ -24,8 +24,8 @@ class Location {
   int typeId;
   String name;
   String address;
-  double lattitude;
-  double longitude;
+  int lattitude;
+  int longitude;
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
         id: json["id"],

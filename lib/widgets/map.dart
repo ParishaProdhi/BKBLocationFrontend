@@ -37,7 +37,7 @@ class _MyMapState extends State<MyMap> {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-            title: Text(widget.lg),
+            title: Text(widget.lg.toString()),
             centerTitle: true,
             backgroundColor: Colors.green[700],
           ),
@@ -48,8 +48,8 @@ class _MyMapState extends State<MyMap> {
                 myLocationEnabled: true,
                 myLocationButtonEnabled: true,
                 onMapCreated: _onMapCreated,
-                initialCameraPosition:
-                    CameraPosition(target: LatLng(26.8206, 30.8025)),
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(widget.lt.toDouble(), widget.lg.toDouble())),
                 padding: EdgeInsets.only(
                   top: 40.0,
                 ),
